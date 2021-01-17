@@ -9,7 +9,7 @@ const Root = ({ store }) => (
   </Provider>
 );
 
-RootContainer.propTypes = {
+Root.propTypes = {
   store: PropTypes.object.isRequired,
 };
 
