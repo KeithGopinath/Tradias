@@ -5,6 +5,7 @@ import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bo
 import _isEmpty from 'lodash/isEmpty';
 import { history } from '../../routes';
 import Card from '../../components/Card';
+import logo2trad from '../../../assets/static/images/logo2trad.png';
 
 const Login = () => {
 
@@ -25,15 +26,14 @@ const Login = () => {
     <div className="wrapper wrapper-full-page">
       <div
         className="full-page login-page"
-        data-color="black"
       >
         <div className="content">
           <div className="container">
             <Row>
               <Col md={4} sm={6} mdOffset={4} smOffset={3}>
-                <form>
-                  <div className='text-center'>
-                    <img src='static/images/lg_logo_white.png' className='mb-5' style={{ 'width': '100%', 'maxWidth': '230px', 'margin-bottom': '20px' }} />
+                <form className="login-container">
+                  <div className='text-center login-header-logo'>
+                    <img src={logo2trad} className='mb-5' style={{ 'width': '100%', 'maxWidth': '230px', 'margin-bottom': '20px' }} />
                   </div>
                   <Card
                     hidden={false}
@@ -42,14 +42,23 @@ const Login = () => {
                     content={
                       <div>
                         <FormGroup>
-                          <ControlLabel>Username</ControlLabel>
+                          <ControlLabel>Email</ControlLabel>
                           <FormControl placeholder="Enter email" type="email" onChange={e => setUsername(e.target.value)} />
                         </FormGroup>
                         <FormGroup>
                           <ControlLabel>Password</ControlLabel>
                           <FormControl placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} autoComplete="off" />
                         </FormGroup>
+                        <Col md={6} sm={6} className="rember-me-container">
+                          <div className='text-left cursor rember-me'><input type="checkbox" />Remember me</div>    
+                        </Col>
+
+                        <Col md={6} sm={6}>
+
+                      
                         <div className='text-right cursor' onClick={forgotPassword}>Forgot Password?</div>
+                        </Col>
+
                       </div>
                     }
                     legend={
