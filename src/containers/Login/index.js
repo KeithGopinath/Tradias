@@ -1,6 +1,5 @@
 /*eslint-disable*/
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import _isEmpty from 'lodash/isEmpty';
 import { history } from '../../routes';
@@ -8,10 +7,9 @@ import Card from '../../components/Card';
 import logo2trad from '../../../assets/static/images/logo2trad.png';
 
 const Login = () => {
-
   const onLogin = () => {
     history.push({
-      pathname: '/forgot-password',
+      pathname: '/dashboard',
     });
   };
 
@@ -29,7 +27,7 @@ const Login = () => {
       >
         <div className="content">
           <div className="container">
-            <Row>
+            <Row className="login-body">
               <Col md={4} sm={6} mdOffset={4} smOffset={3}>
                 <form className="login-container">
                   <div className='text-center login-header-logo'>
@@ -49,16 +47,12 @@ const Login = () => {
                           <ControlLabel>Password</ControlLabel>
                           <FormControl placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} autoComplete="off" />
                         </FormGroup>
-                        <Col md={6} sm={6} className="rember-me-container">
-                          <div className='text-left cursor rember-me'><input type="checkbox" />Remember me</div>    
+                        <Col md={12} sm={12} className="rember-me-container">
+                          <div className='text-left cursor rember-me'><input type="checkbox" />Remember me</div>
                         </Col>
-
-                        <Col md={6} sm={6}>
-
-                      
-                        <div className='text-right cursor' onClick={forgotPassword}>Forgot Password?</div>
+                        <Col md={12} sm={12}>
+                          <div className='text-right cursor' onClick={forgotPassword}>Forgot Password?</div>
                         </Col>
-
                       </div>
                     }
                     legend={
