@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React from 'react';
-import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 import _isEmpty from 'lodash/isEmpty';
 import { history } from '../../routes';
 import Card from '../../components/Card';
@@ -29,7 +29,7 @@ const Login = () => {
           <div className="container">
             <Row className="login-body">
               <Col md={4} sm={6} mdOffset={4} smOffset={3}>
-                <form className="login-container">
+                 <form className="login-container">
                   <div className='text-center login-header-logo'>
                     <img src={logo2trad} className='mb-5' style={{ 'width': '100%', 'maxWidth': '230px', 'margin-bottom': '20px' }} />
                   </div>
@@ -39,14 +39,14 @@ const Login = () => {
                     title="Login"
                     content={
                       <div>
-                        <FormGroup>
-                          <ControlLabel>Email</ControlLabel>
-                          <FormControl placeholder="Enter email" type="email" onChange={e => setUsername(e.target.value)} />
-                        </FormGroup>
-                        <FormGroup>
-                          <ControlLabel>Password</ControlLabel>
-                          <FormControl placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} autoComplete="off" />
-                        </FormGroup>
+                        <Form.Group>
+                          <Form.Label>Email</Form.Label>
+                          <Form.Control placeholder="Enter email" type="email" onChange={e => setUsername(e.target.value)} />
+                        </Form.Group>
+                        <Form.Group>
+                          <Form.Label>Password</Form.Label>
+                          <Form.Control placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} autoComplete="off" />
+                        </Form.Group>
                         <Col md={12} sm={12} className="rember-me-container">
                           <div className='text-left cursor rember-me'><input type="checkbox" />Remember me</div>
                         </Col>
@@ -62,7 +62,7 @@ const Login = () => {
                     }
                     ftTextCenter
                   />
-                </form>
+                </form> 
               </Col>
             </Row>
           </div>
