@@ -1,8 +1,6 @@
 /*eslint-disable*/
 import React, {Component } from 'react';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button} from 'react-bootstrap';
-import { history } from '../../routes';
-import Card from '../../components/Card';
 
 // const AdminOrder = () => {
     class AdminOrder extends Component {
