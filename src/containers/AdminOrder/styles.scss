@@ -1,0 +1,34 @@
+.admin-butn {
+    margin-top: 32px;
+    padding: 6px 16px;
+    width: 100%;
+    white-space: nowrap;
+  }
+  
+  label {
+    white-space: nowrap;
+  }
+  // .responsive-width {
+  //     font-size: 3vw;
+  // }
+  
+  .button-wrapper .btn {
+    margin: 20px 0px;
+  }
+  .button-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+  }
+  .admin-body {
+    top: 10%;
+  }
+  .plus-icon {
+    float: right;
+    right: 20px;
+    top: 96px;
+    position: relative;
+    .Plus-logo {
+      font-size: 29px;
+    }
+  }

@@ -8,7 +8,8 @@ import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 import * as AiIcons from 'react-icons/ai';
 // import { SidebarData } from './SidebarData';
-import PriceChannel from './../PriceChannel/index'
+import PriceChannel from './../PriceChannel/index';
+import AdminOrder from './../AdminOrder'
 
 const Dashboard = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -16,16 +17,16 @@ const Dashboard = () => {
 
   const routes = [
     {
-      path: "/admin-order",
+      path: "/dashboard",
       exact: true,
       sidebar: () => <div>Admin Order</div>,
-      main: () => <h2>Admin Order Content</h2>
+      main: () => <AdminOrder/>
     },
     {
       path: "/price-channel",
       exact: true,
       sidebar: () => <div>foo</div>,
-      main: () => <h2><PriceChannel/> </h2>
+      main: () => <PriceChannel/>
     },
 
   ];
@@ -35,7 +36,7 @@ const Dashboard = () => {
     <div className="dashboard">
       {/* <IconContext.Provider value={{ color: '#fff' }}> */}
         <div className="navbar">
-          <Link to="#" className="menu-bar">
+          <Link to="/dashboard" className="menu-bar">
             {/* <FaIcons.FaBars onClick={showSidebar} /> */}
             Logo
           </Link>
@@ -53,7 +54,7 @@ const Dashboard = () => {
         >
           <ul style={{ listStyleType: "none", padding: 0 }}>
             <li>
-              <Link to="/admin-order">Admin Orders</Link>
+              <Link to="/dashboard">Admin Orders</Link>
             </li>
             
             <li>

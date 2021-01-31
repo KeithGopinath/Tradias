@@ -22,7 +22,7 @@ const PriceChannel = () => {
 
   return (
     <div className="wrapper wrapper-full-page">
-            Price Channel...
+            Price Channel Content
     </div>
   )
 };
