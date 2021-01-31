@@ -147,3 +147,64 @@ span {
   padding: 0;
   font-family: 'Lato', sans-serif;
 }
+
+//admin-orders styles 
+select{
+  border: 2px solid #ccc !important;
+  border-radius: 1rem !important;
+  padding: .65rem!important
+}
+
+.save-config-btn {
+  padding: 1rem;
+  margin: 1rem 0 0 0;
+}
+
+.admin-order {
+  padding: 1rem;
+  margin: 1rem 0 0 0;
+}
+
+.second-row-container {
+  margin: 1rem 0 0 0;
+}
+
+.start {
+  padding: 1rem;
+  margin: 1rem 0 0 0;
+}
+
+.no-pad {
+  padding: 0rem !important
+}
+
+.liq-con {
+  margin-left: 2rem !important;
+}
+.price-chan-con{
+  margin-left: 2rem !important;
+}
+
+.bit-con {
+  margin: 1.5rem 0 0 1rem;
+}
+.ask-con {
+  margin: 1.5rem 0 0 0rem;
+}
+.last-con {
+  margin: 1.5rem 0 0 0rem;
+}
+
+.automode-con {
+  margin: 1.3rem !important;
+}
+
+.autohedge-con {
+  margin: -.3rem 0 0 1rem !important;
+}
+
+.add-new-admin {
+  background: #87cb16  !important;
+  border-color: #87cb16 !important;
+  border-radius: 5rem !important;
+}

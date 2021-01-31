@@ -53,11 +53,11 @@ const Dashboard = () => {
           className="sidebar-container"
         >
           <ul style={{ listStyleType: "none", padding: 0 }}>
-            <li>
+            <li style={{  margin: '1rem' }}>
               <Link to="/dashboard">Admin Orders</Link>
             </li>
             
-            <li>
+            <li style={{  margin: '1rem' }}>
               <Link to="/price-channel">Price Order</Link>
             </li>
           </ul>
