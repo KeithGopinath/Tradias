@@ -1,43 +1,24 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/no-children-prop */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-// import { IconContext } from 'react-icons';
-// import * as FaIcons from 'react-icons/fa';
-// import * as AiIcons from 'react-icons/ai';
+import React, { useState } from 'react';
+import { IconContext } from 'react-icons';
+import { Link } from 'react-router-dom';
+import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
-// import { SidebarData } from './SidebarData';
-// import PriceChannel from './../PriceChannel/index';
-import AdminOrder from './../AdminOrders';
+import * as AiIcons from 'react-icons/ai';
+import { SidebarData } from './SidebarData';
 
 const Dashboard = () => {
-  // const [sidebar, setSidebar] = useState(false);
-  // const showSidebar = () => setSidebar(!sidebar);
-
-  const routes = [
-    {
-      path: '/dashboard',
-      exact: true,
-      sidebar: () => <div>Admin Order</div>,
-      main: () => <AdminOrder />,
-    },
-    // {
-    //   path: "/price-channel",
-    //   exact: true,
-    //   sidebar: () => <div>foo</div>,
-    //   main: () => <PriceChannel/>
-    // },
-  ];
+  const [sidebar, setSidebar] = useState(false);
+  const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <Router>
-      <div className="dashboard">
-        {/* <IconContext.Provider value={{ color: '#fff' }}> */}
+    <div className="dashboard">
+      <IconContext.Provider value={{ color: '#fff' }}>
         <div className="navbar">
-          <Link to="/dashboard" className="menu-bar">
-            {/* <FaIcons.FaBars onClick={showSidebar} /> */}
-            Logo
+          <Link to="#" className="menu-bar">
+            <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <div className="navigation">
             <a className="bttn" href="">
@@ -46,46 +27,25 @@ const Dashboard = () => {
             </a>
           </div>
         </div>
-
-        <div style={{ display: 'flex' }}>
-          <div
-            className="sidebar-container"
-          >
-            <ul style={{ listStyleType: 'none', padding: 0 }}>
-              <li style={{ margin: '1rem' }}>
-                <Link to="/dashboard">Admin Orders</Link>
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className="nav-menu-items" onClick={showSidebar}>
+            <li className="navbar-toggle">
+              <Link to="#" className="menu-bar-close">
+                <AiIcons.AiOutlineClose />
+              </Link>
+            </li>
+            {SidebarData.map((item) => (
+              <li key={item.id} className={item.cName}>
+                <Link to={item.path}>
+                  {item.icon}
+                  <span>{item.title}</span>
+                </Link>
               </li>
-
-              <li style={{ margin: '1rem' }}>
-                <Link to="/price-channel">Price Order</Link>
-              </li>
-            </ul>
-            {/* <Switch>
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                children={<route.sidebar />}
-              />
             ))}
-          </Switch> */}
-          </div>
-          <div style={{ flex: 1, padding: '10px' }}>
-            <Switch>
-              {routes.map((route, index) => (
-                <Route
-                  key={index}
-                  path={route.path}
-                  exact={route.exact}
-                  children={<route.main />}
-                />
-              ))}
-            </Switch>
-          </div>
-        </div>
-      </div >
-    </Router>
+          </ul>
+        </nav >
+      </IconContext.Provider>
+    </div >
 
   );
 };
