@@ -8,8 +8,10 @@ import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 import * as AiIcons from 'react-icons/ai';
 // import { SidebarData } from './SidebarData';
-import PriceChannel from './../PriceChannel/index';
-import AdminOrder from './../AdminOrder'
+// import PriceChannel from './../PriceChannel/index';
+// import AdminOrder from './../AdminOrder';
+import Welcome from './Dashboard';
+import Currency from './../Currency/index'
 
 const Dashboard = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -19,16 +21,23 @@ const Dashboard = () => {
     {
       path: "/dashboard",
       exact: true,
-      sidebar: () => <div>Admin Order</div>,
-      main: () => <AdminOrder/>
+      sidebar: () => <div>Dashboard</div>,
+      main: () => <Welcome/>
     },
     {
-      path: "/price-channel",
+      path: "/currency",
       exact: true,
       sidebar: () => <div>foo</div>,
-      main: () => <PriceChannel/>
+      main: () => <Currency/>
     },
 
+    // {
+    //   path: "/price-channel",
+    //   exact: true,
+    //   sidebar: () => <div>foo</div>,
+    //   main: () => <PriceChannel/>
+    // },
+   
   ];
 
   return (
@@ -53,12 +62,18 @@ const Dashboard = () => {
           className="sidebar-container"
         >
           <ul style={{ listStyleType: "none", padding: 0 }}>
-            <li style={{  margin: '1rem' }}>
+            {/* <li style={{  margin: '1rem' }}>
               <Link to="/dashboard">Admin Orders</Link>
             </li>
             
             <li style={{  margin: '1rem' }}>
               <Link to="/price-channel">Price Order</Link>
+            </li> */}
+              <li style={{  margin: '1rem' }}>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+            <li style={{  margin: '1rem' }}>
+              <Link to="/currency">Currency</Link>
             </li>
           </ul>
           {/* <Switch>
