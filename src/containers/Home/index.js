@@ -3,32 +3,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-// import { IconContext } from 'react-icons';
-// import * as FaIcons from 'react-icons/fa';
-// import * as AiIcons from 'react-icons/ai';
 import * as FiIcons from 'react-icons/fi';
-// import { SidebarData } from './SidebarData';
-// import PriceChannel from './../PriceChannel/index';
-import AdminOrder from './../AdminOrders';
+import { SidebarData } from './SidebarData';
 
-const Dashboard = () => {
+const Home = () => {
   // const [sidebar, setSidebar] = useState(false);
   // const showSidebar = () => setSidebar(!sidebar);
-
-  const routes = [
-    {
-      path: '/dashboard',
-      exact: true,
-      sidebar: () => <div>Admin Order</div>,
-      main: () => <AdminOrder />,
-    },
-    // {
-    //   path: "/price-channel",
-    //   exact: true,
-    //   sidebar: () => <div>foo</div>,
-    //   main: () => <PriceChannel/>
-    // },
-  ];
 
   return (
     <Router>
@@ -48,32 +28,22 @@ const Dashboard = () => {
         </div>
 
         <div style={{ display: 'flex' }}>
-          <div
-            className="sidebar-container"
-          >
-            <ul style={{ listStyleType: 'none', padding: 0 }}>
-              <li style={{ margin: '1rem' }}>
-                <Link to="/dashboard">Admin Orders</Link>
-              </li>
-
-              <li style={{ margin: '1rem' }}>
-                <Link to="/price-channel">Price Order</Link>
-              </li>
+          <div className="sidebar-container">
+            <ul style={{ listStyleType: 'none', padding: 0 }}>             
+                {SidebarData.map((item) => (
+                  <li key={item.id} className={item.cName}>
+                    <Link to={item.path}>
+                      {item.icon}
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                 ))}
             </ul>
-            {/* <Switch>
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                children={<route.sidebar />}
-              />
-            ))}
-          </Switch> */}
           </div>
+
           <div style={{ flex: 1, padding: '10px' }}>
             <Switch>
-              {routes.map((route, index) => (
+              {SidebarData.map((route, index) => (
                 <Route
                   key={index}
                   path={route.path}
@@ -90,4 +60,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Home;
