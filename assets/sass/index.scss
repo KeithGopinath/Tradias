@@ -1,6 +1,8 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import './variable.scss';
+@import './common.scss';
 @import '../../src/components/Card/style.scss';
 @import '../../src/containers/Login/style.scss';
 @import '../../src/containers/Home/style.scss';
+@import '../../src/containers/Dashboard/style.scss';
 @import '../../src/containers/AdminOrders/style.scss';

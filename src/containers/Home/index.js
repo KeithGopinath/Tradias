@@ -27,7 +27,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div style={{ display: 'flex' }}>
+        <div className="sidebar-con-wrapper">
           <div className="sidebar-container">
             <ul style={{ listStyleType: 'none', padding: 0 }}>             
                 {SidebarData.map((item) => (
@@ -41,7 +41,7 @@ const Home = () => {
             </ul>
           </div>
 
-          <div style={{ flex: 1, padding: '10px' }}>
+          <div className="content-wrapper">
             <Switch>
               {SidebarData.map((route, index) => (
                 <Route
