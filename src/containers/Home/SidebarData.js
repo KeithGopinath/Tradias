@@ -65,4 +65,13 @@ export const SidebarData = [
     icon: <IoIcons.IoIosMedical />,
     cName: 'nav-text',
   },
+  // {
+  //   title: 'Admin Orders',
+  //   path: "/admin-order",
+  //   exact: true,
+  //   sidebar: () => <div>Admin Orders</div>,
+  //   main: () => <AdminOrder/>,
+  //   icon: <IoIcons.IoMdPeople />,
+  //   cName: 'nav-text',
+  // },
 ];

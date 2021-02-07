@@ -11,14 +11,15 @@ const AdminOrders = () => {
   const [list, setList] = useState([]);
 
   const OrdersRow = () => (
+    <div className="wrapper wrapper-full-page">
     <div className="subParent-col-12">
-      <Row className="showi-col-12">
+      {/* <Row className="showi-col-12">
         <Col>
           <div className="plus-icon">
             <button id="button" onClick={AddRow} ><BsIcons.BsPlusCircle className="Plus-logo" /></button>
           </div>
         </Col>
-      </Row>
+      </Row> */}
       <Row className="show col-11">
         <Col xl={6} sm={12}>
           <Row>
@@ -155,6 +156,7 @@ const AdminOrders = () => {
           </div>
         </Col>
       </Row>
+    </div>
     </div>
   );
 

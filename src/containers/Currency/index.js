@@ -1,15 +1,20 @@
 /*eslint-disable*/
-import React, {Component } from 'react';
-import { Row, Col, Container, FormGroup, ControlLabel, FormControl, Button, Table} from 'react-bootstrap';
-import * as IoIcons from 'react-icons/io';
+import React, { useState } from 'react';
+import { Row, Col, Container, Button, Table, Modal, Form} from 'react-bootstrap';
+import * as FaIcons from 'react-icons/fa';
 
 const Currency = () => {
+          
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => {
+        setShow(true);
+    };
 
-      return (
-            <div className="wrapper wrapper-full-page">
-
+    return (
+        <div className="wrapper wrapper-full-page">
             <Row className="col-12 no-pad no-mar">
-                  <Col className="no-pad">
+                <Col className="no-pad">
                     <div className="content-title-wrapper">
                         <Container>
                             <Row>
@@ -17,10 +22,10 @@ const Currency = () => {
                                     <h6 className="mast-title">Currency Master</h6>
                                 </Col>
                                 <Col md="auto">
-                                    <Button variant="primary" className="btn-fill">Export</Button>
+                                    <Button variant="primary" className="btn-fill"><FaIcons.FaCloudUploadAlt /><span className="curren-action-label">Export</span></Button>
                                 </Col>
                                 <Col xs lg="2">
-                                    <Button className="btn-add" >Add New</Button>
+                                    <Button className="btn-add" onClick={handleShow} ><FaIcons.FaPlusCircle /><span className="curren-action-label">Add New</span></Button>
                                 </Col>
                             </Row>
                         </Container>
@@ -40,28 +45,70 @@ const Currency = () => {
                                 <td>Bitcoin</td>
                                 <td>Invented in 2008 by an unknown person or group 
     of people using the name Satoshi Nakamoto. </td>
-                                <td><IoIcons.IoIosFolderOpen /></td>
+                                <td><FaIcons.FaEdit />
+                                    <span>
+                                        <FaIcons.FaTrashAlt />
+                                    </span></td>
                                 </tr>
                                 <tr>
                                 <td>2</td>
                                 <td>Ethereum</td>
                                 <td>Second-largest cryptocurrency by market 
     capitalization, after Bitcoin </td>
-                                <td><IoIcons.IoIosFolderOpen /></td>
+                                <td><FaIcons.FaEdit />
+                                <span>
+                                        <FaIcons.FaTrashAlt />
+                                    </span></td>
                                 </tr>
                                 <tr>
                                 <td>3</td>
                                 <td>Litecoin</td>
                                 <td>peer-to-peer currency and open-source
     released under the MIT/X11 license</td>
-                                <td><IoIcons.IoIosFolderOpen /></td>
+                                <td>
+                                    <FaIcons.FaEdit />
+                                    <span>
+                                        <FaIcons.FaTrashAlt />
+                                    </span>
+                                </td>
                                 </tr>
                             </tbody>
                         </Table>
 
+                        <Modal show={show} onHide={handleClose} >
+                            <Modal.Header closeButton>
+                                <Modal.Title>Create New Currency</Modal.Title>
+                                    </Modal.Header>
+                                        <Modal.Body>
+                                            <Form>
+                                                <Row>
+                                                    <Col md={{ span: 1, offset: 2 }}> 
+                                                        <Form.Group>
+                                                                <Form.Label>Code</Form.Label>                                                            
+                                                        </Form.Group>
+                                                    </Col>                                    
+                                                    <Col md={{ span: 4, offset: 3 }}>
+                                                        <Form.Control size="sm" />
+                                                    </Col> 
+                                                    <Col md={{ span: 1, offset: 2 }}> 
+                                                        <Form.Group>
+                                                                <Form.Label>Description</Form.Label>                                                            
+                                                        </Form.Group>
+                                                    </Col>                                    
+                                                    <Col md={{ span: 0, offset: 3 }}>
+                                                        <Form.Control size="md" as="textarea" rows={3} />
+                                                    </Col>                                                         
+                                                    <Col md={{ span: 5, offset: 6 }} className="add-new-submit"> 
+                                                        <Button  variant="primary" onClick={handleClose}>Submit</Button>
+                                                    </Col>                                                                                                                                                                      
+                                                </Row>
+                                            </Form>
+                                    </Modal.Body>                                      
+                        </Modal>
+
                     </Col>
                 </Row>
-            </div>
+        </div>
       )
 };
 
