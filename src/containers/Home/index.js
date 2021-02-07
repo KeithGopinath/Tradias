@@ -6,11 +6,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import { SidebarData } from './SidebarData';
 
-const Home = () => {
-  // const [sidebar, setSidebar] = useState(false);
-  // const showSidebar = () => setSidebar(!sidebar);
+const Home = () =>
+// const [sidebar, setSidebar] = useState(false);
+// const showSidebar = () => setSidebar(!sidebar);
 
-  return (
+  (
     <Router>
       <div className="dashboard">
         {/* <IconContext.Provider value={{ color: '#fff' }}> */}
@@ -26,21 +26,19 @@ const Home = () => {
             </a>
           </div>
         </div>
-
         <div className="sidebar-con-wrapper">
           <div className="sidebar-container">
-            <ul style={{ listStyleType: 'none', padding: 0 }}>             
-                {SidebarData.map((item) => (
-                  <li key={item.id} className={item.cName}>
-                    <Link to={item.path}>
-                      {item.icon}
-                      <span>{item.title}</span>
-                    </Link>
-                  </li>
-                 ))}
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
+              {SidebarData.map((item) => (
+                <li key={item.id} className={item.cName}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-
           <div className="content-wrapper">
             <Switch>
               {SidebarData.map((route, index) => (
@@ -56,8 +54,6 @@ const Home = () => {
         </div>
       </div >
     </Router>
-
   );
-};
 
 export default Home;

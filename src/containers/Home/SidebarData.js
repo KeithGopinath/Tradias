@@ -58,10 +58,10 @@ export const SidebarData = [
   },
   {
     title: 'Price Channel',
-    path: "/price-channel",
+    path: '/price-channel',
     exact: true,
     sidebar: () => <div>Price Channel</div>,
-    main: () => <PriceChannel/>,
+    main: () => <PriceChannel />,
     icon: <IoIcons.IoIosMedical />,
     cName: 'nav-text',
   },
