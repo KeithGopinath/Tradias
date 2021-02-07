@@ -1,35 +1,37 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/no-children-prop */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { IconContext } from 'react-icons';
+import { Link } from 'react-router-dom';
+import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 import { SidebarData } from './SidebarData';
 
 const Home = () => {
-  // const [sidebar, setSidebar] = useState(false);
-  // const showSidebar = () => setSidebar(!sidebar);
+  const [sidebar, setSidebar] = useState(true);
+  const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <Router>
-      <div className="dashboard">
-        {/* <IconContext.Provider value={{ color: '#fff' }}> */}
+    <div className="home">
+      <IconContext.Provider value={{ color: '#fff' }}>
         <div className="navbar">
-          <Link to="/dashboard" className="menu-bar">
-            {/* <FaIcons.FaBars onClick={showSidebar} /> */}
-            Logo
+          <Link to="#" className="toggle">
+            <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <div className="navigation">
-            <a className="bttn" href="">
-              <FiIcons.FiLogOut className="logout-img" />
-              <div className="logout">LOGOUT</div>
-            </a>
+          <div className="logout-navig">
+            <div className="navigation">
+              <a className="bttn" href="">
+                <FiIcons.FiLogOut className="logout-img" />
+                <div className="logout">LOGOUT</div>
+              </a>
+            </div>
           </div>
         </div>
-
-        <div className="sidebar-con-wrapper">
-          <div className="sidebar-container">
-            <ul style={{ listStyleType: 'none', padding: 0 }}>             
+        <div className="sidebar-navig">
+          <div className="navigation">
+            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+              <ul className="nav-menu-items">
                 {SidebarData.map((item) => (
                   <li key={item.id} className={item.cName}>
                     <Link to={item.path}>
@@ -37,25 +39,13 @@ const Home = () => {
                       <span>{item.title}</span>
                     </Link>
                   </li>
-                 ))}
-            </ul>
-          </div>
-
-          <div className="content-wrapper">
-            <Switch>
-              {SidebarData.map((route, index) => (
-                <Route
-                  key={index}
-                  path={route.path}
-                  exact={route.exact}
-                  children={<route.main />}
-                />
-              ))}
-            </Switch>
+                ))}
+              </ul>
+            </nav >
           </div>
         </div>
-      </div >
-    </Router>
+      </IconContext.Provider>
+    </div >
 
   );
 };

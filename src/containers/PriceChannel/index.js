@@ -1,12 +1,17 @@
 /*eslint-disable*/
 import React, {Component } from 'react';
 // import { Row, Col, FormGroup, ControlLabel, FormControl, Button} from 'react-bootstrap';
+import { history } from '../../routes';
+import Home from '../Home';
 
 const PriceChannel = () => {
 
       return (
-            <div className="wrapper wrapper-full-page">
+            <div>
+            <Home history={history} />
+            <div >
                  Price Channel Layout
+            </div>
             </div>
       )
 };

@@ -2,12 +2,15 @@
 import React, {Component } from 'react';
 import { Row, Col, Container, FormGroup, ControlLabel, FormControl, Button, Table} from 'react-bootstrap';
 import * as IoIcons from 'react-icons/io';
+import { history } from '../../routes';
+import Home from '../Home';
 
 const Currency = () => {
 
       return (
+          <div>
+        <Home history={history} />
             <div className="wrapper wrapper-full-page">
-
             <Row className="col-12 no-pad no-mar">
                   <Col className="no-pad">
                     <div className="content-title-wrapper">
@@ -61,6 +64,7 @@ const Currency = () => {
 
                     </Col>
                 </Row>
+            </div>
             </div>
       )
 };

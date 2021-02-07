@@ -9,7 +9,7 @@ import logo2trad from '../../../assets/static/images/logo2trad.png';
 const Login = () => {
   const onLogin = () => {
     history.push({
-      pathname: '/dashboard',
+      pathname: '/home',
     });
   };
 

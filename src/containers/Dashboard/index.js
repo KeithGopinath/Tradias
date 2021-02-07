@@ -1,12 +1,16 @@
 /*eslint-disable*/
 import React, {Component } from 'react';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button} from 'react-bootstrap';
+import { history } from '../../routes';
+import Home from '../Home';
 
 const Dashboard = () => {
       return (
+        <div>
+        <Home history={history} />
             <div className="wrapper wrapper-full-page">
                 <Row className="col-12 no-pad no-mar">
-                  <Col className="no-pad">
+                  <Col>
                     <div className="welcome-msg">
                       <div class="jumbotron">
                         <div class="container text-center">
@@ -26,6 +30,7 @@ const Dashboard = () => {
                     </div>
                   </Col>
                 </Row>
+            </div>
             </div>
       )
 };
