@@ -1,23 +1,23 @@
-import * as CONTACTS from '../actionTypes/Contacts';
+import * as LOGIN from '../actionTypes/Login';
 
 const initialState = {
-  contacts: [],
+  loginData: [],
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case CONTACTS.GET_CONTACTS:
+    case LOGIN.GET_LOGIN:
       return {
         ...state,
         isLoading: true,
       };
-    case CONTACTS.GET_CONTACTS_SUCCESS:
+    case LOGIN.GET_LOGIN_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        contacts: action.contacts,
+        loginData: action.loginData,
       };
-    case CONTACTS.GET_CONTACTS_FAILURE:
+    case LOGIN.GET_LOGIN_FAILURE:
       return {
         ...state,
         isLoading: false,

@@ -3,13 +3,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { history } from '../../routes';
 import * as FiIcons from 'react-icons/fi';
 import { SidebarData } from './SidebarData';
 
 const Home = () => {
   // const [sidebar, setSidebar] = useState(false);
   // const showSidebar = () => setSidebar(!sidebar);
-
+  const onLogout = () => { 
+    history.push('/')
+    sessionStorage.clear()
+  }
   return (
     <Router>
       <div className="dashboard">
@@ -20,7 +24,7 @@ const Home = () => {
             Logo
           </Link>
           <div className="navigation">
-            <a className="bttn" href="">
+            <a className="bttn" onClick={onLogout}>
               <FiIcons.FiLogOut className="logout-img" />
               <div className="logout">LOGOUT</div>
             </a>
