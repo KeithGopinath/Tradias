@@ -1,28 +1,13 @@
-import * as LOGIN from '../actionTypes/Login';
+import * as types from '../actionCreators';
 
-const initialState = {
-  loginData: [],
-};
+export default function(state = [], action) {
+  const response = action.response;
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case LOGIN.GET_LOGIN:
-      return {
-        ...state,
-        isLoading: true,
-      };
-    case LOGIN.GET_LOGIN_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        loginData: action.loginData,
-      };
-    case LOGIN.GET_LOGIN_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        error: action.error,
-      };
+  switch(action.type) {
+    case types.LOGIN_USER_SUCCESS:
+      return { ...state, response };
+    case types.LOGIN_USER_ERROR:
+      return { ...state, response };
     default:
       return state;
   }

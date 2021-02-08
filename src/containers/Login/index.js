@@ -7,6 +7,8 @@ import Card from '../../components/Card';
 import Axios from 'axios'
 import logo2trad from '../../../assets/static/images/logo2trad.png';
 // import bankhaus from '../../../assets/static/images/bankhaus.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUserAction } from '../../actionCreators/Login';
 
 const Login = () => {
 
@@ -14,6 +16,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [emailMsg, setEmailMsg] = useState(false);
   const [passMsg, setPassMsg] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleUserName = (username) => {
     setUserName(username);
@@ -36,6 +40,7 @@ const Login = () => {
         "username": username,
         "password": password
       }
+      // dispatch(loginUserAction(loginDetails));
       Axios.post('http://106.51.154.173:8181/websocket/userlogin', loginDetails).then((response) => {
           if (response.data.statusMessage === "SIGN_IN_SUCCESS") {
               sessionStorage.setItem("authToken", JSON.stringify(response.data.token));

@@ -1,21 +1,8 @@
-import * as LOGIN from '../actionTypes/Login';
+import * as types from '../actionTypes/Login';
 
-export function getLogin() {
+export const loginUserAction = (user) => {
   return {
-    type: LOGIN.GET_LOGIN,
-  };
-}
-
-export function getLoginSucccess(loginSuccess) {
-  return {
-    type: LOGIN.GET_LOGIN_SUCCESS,
-    loginSuccess,
-  };
-}
-
-export function getLoginFailure(error) {
-  return {
-    type: LOGIN.GET_LOGIN_FAILURE,
-    error,
-  };
-}
+    type: types.LOGIN_USER,
+    user
+  }
+};
